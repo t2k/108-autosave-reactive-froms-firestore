@@ -13,33 +13,29 @@ import {
   MatInputModule,
   MatButtonModule,
   MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
   MatGridListModule
 } from '@angular/material';
 import { FormDemoComponent } from './form-demo/form-demo.component';
 import { FireFormDirective } from './fire-form.directive';
 
-// Add your project credentials
-const firebase = {
-  apiKey: '<your-key>',
-  authDomain: '<your-project-authdomain>',
-  databaseURL: '<your-database-URL>',
-  projectId: '<your-project-id>',
-  storageBucket: '<your-storage-bucket>',
-  messagingSenderId: '<your-messaging-sender-id>'
-};
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, FormDemoComponent, FireFormDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebase),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
